@@ -1,4 +1,4 @@
-import { app, BrowserWindow } from 'electron';
+import { app, BrowserWindow, ipcMain } from 'electron';
 import path from 'node:path';
 import started from 'electron-squirrel-startup';
 
@@ -17,13 +17,19 @@ const createWindow = () => {
     },
   });
 
-  // and load the index.html of the app.
-  if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
-    mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
+  // // and load the index.html of the app.
+  // if (MAIN_WINDOW_VITE_DEV_SERVER_URL) {
+  //   mainWindow.loadURL(MAIN_WINDOW_VITE_DEV_SERVER_URL);
+  // } else {
+  //   mainWindow.loadFile(
+  //     path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
+  //   );
+  // }
+
+  if (!app.isPackaged) {
+    mainWindow.loadURL('http://localhost:4200');
   } else {
-    mainWindow.loadFile(
-      path.join(__dirname, `../renderer/${MAIN_WINDOW_VITE_NAME}/index.html`),
-    );
+    mainWindow.loadFile(path.join(__dirname, '../dist/ui/index.html'));
   }
 
   // Open the DevTools.
@@ -54,3 +60,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and import them here.
+
+ipcMain.handle('ping', (_, msg: string) => {
+  return `pong: ${msg}`;
+});
