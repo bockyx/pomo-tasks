@@ -23,7 +23,8 @@
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}/pomo-ui",
-      "sourceMaps": true
+      "sourceMaps": true,
+      "postDebugTask": "stop-ui"
     }
   ]
 }
