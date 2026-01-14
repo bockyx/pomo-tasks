@@ -10,6 +10,7 @@ if (started) {
 const createWindow = () => {
   // Create the browser window.
   const mainWindow = new BrowserWindow({
+    titleBarStyle: 'hidden',
     width: 800,
     height: 600,
     webPreferences: {
@@ -28,12 +29,12 @@ const createWindow = () => {
 
   if (!app.isPackaged) {
     mainWindow.loadURL('http://localhost:4200');
+    mainWindow.webContents.openDevTools();
   } else {
     mainWindow.loadFile(path.join(__dirname, '../dist/ui/index.html'));
   }
 
   // Open the DevTools.
-  mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
