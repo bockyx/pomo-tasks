@@ -9,7 +9,10 @@
     "sourceMap": true,
     "baseUrl": ".",
     "outDir": "dist",
-    "moduleResolution": "node",
-    "resolveJsonModule": true
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "paths": {
+      "@pomo-ui/*": ["pomo-ui/src/app/*"]
+    }
   }
 }
