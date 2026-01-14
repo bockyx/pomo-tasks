@@ -6,11 +6,11 @@
   "main": ".vite/build/main.js",
   "private": true,
   "scripts": {
-    "start": "electron-forge start",
-    "package": "electron-forge package",
-    "make": "electron-forge make",
-    "publish": "electron-forge publish",
-    "lint": "eslint --ext .ts,.tsx ."
+    "dev": "concurrently -k \"pnpm:ui\" \"pnpm:electron\"",
+    "ui": "pnpm --filter pomo-ui start",
+    "electron": "wait-on http://localhost:4200 && electron-forge start",
+    "build:ui": "pnpm --filter pomo-ui build",
+    "make": "pnpm build:ui && electron-forge make"
   },
   "keywords": [],
   "author": "b",
@@ -34,11 +34,13 @@
     "@types/electron-squirrel-startup": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "^5.62.0",
     "@typescript-eslint/parser": "^5.62.0",
+    "concurrently": "^9.2.1",
     "electron": "39.2.7",
     "eslint": "^8.57.1",
     "eslint-plugin-import": "^2.32.0",
     "typescript": "~4.5.5",
-    "vite": "^5.4.21"
+    "vite": "^5.4.21",
+    "wait-on": "^9.0.3"
   },
   "dependencies": {
     "electron-squirrel-startup": "^1.0.1"
