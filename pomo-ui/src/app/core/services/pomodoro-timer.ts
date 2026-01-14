@@ -10,6 +10,8 @@ export class PomodoroTimerService {
   remainingMs = signal(0);
   running = signal(false);
 
+  progress = signal(0);
+
   start() {
     this.endTime = Date.now() + this.durationMs;
     this.running.set(true);
@@ -20,10 +22,12 @@ export class PomodoroTimerService {
       const remaining = this.endTime - Date.now();
 
       if (remaining <= 0) {
+        this.progress.set(100);
         this.remainingMs.set(0);
         this.stop();
       } else {
         this.remainingMs.set(remaining);
+        this.progress.set(((this.durationMs - remaining) / this.durationMs) * 100);
       }
     }, 250);
   }

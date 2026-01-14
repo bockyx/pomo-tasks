@@ -2,5 +2,6 @@
     "conventionalCommits.scopes": [
         "electron",
         "angular"
-    ]
+    ],
+    "angular.enable-strict-mode-prompt": false
 }

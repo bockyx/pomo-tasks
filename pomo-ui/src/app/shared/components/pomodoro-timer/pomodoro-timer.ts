@@ -1,9 +1,10 @@
 import { Component, computed, inject } from '@angular/core';
-import { PomodoroTimerService } from '@pomo-ui/core/services/pomodoro-timer.service';
+import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { PomodoroTimerService } from '@pomo-ui/core/services/pomodoro-timer';
 
 @Component({
   selector: 'pou-pomodoro-timer',
-  imports: [],
+  imports: [MatProgressSpinnerModule],
   templateUrl: './pomodoro-timer.html',
   styleUrl: './pomodoro-timer.scss',
 })
@@ -12,6 +13,7 @@ export class PomodoroTimer {
 
   remaining = this.timer.remainingMs;
   running = this.timer.running;
+  progress = this.timer.progress;
 
   formattedTime = computed(() => {
     const ms = this.remaining();

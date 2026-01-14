@@ -1,5 +1,16 @@
-<h1>{{ formattedTime() }}</h1>
+<div class="pomodoro-container">
+  <mat-progress-spinner
+    class="custom-spinner"
+    [mode]="'determinate'"
+    [value]="progress()"
+    [diameter]="200"
+    [strokeWidth]="10"
+  >
+  </mat-progress-spinner>
 
-<button (click)="start()" [disabled]="running()">Start</button>
+  <h1>{{ formattedTime() }}</h1>
 
-<button (click)="stop()" [disabled]="!running()">Stop</button>
+  <button (click)="start()" [disabled]="running()">Start</button>
+
+  <button (click)="stop()" [disabled]="!running()">Stop</button>
+</div>
