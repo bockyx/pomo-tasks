@@ -5,10 +5,10 @@
   "description": "My Electron application description",
   "main": ".vite/build/main.js",
   "private": true,
-  "scripts": {
-    "dev": "concurrently -k \"pnpm:ui\" \"pnpm:electron\"",
-    "ui": "pnpm --filter pomo-ui start",
-    "electron": "wait-on http://localhost:4200 && electron-forge start",
+   "scripts": {
+    "dev": "pnpm dev:ui",
+    "dev:ui": "pnpm --filter pomo-ui start",
+    "dev:electron": "electron-forge start",
     "build:ui": "pnpm --filter pomo-ui build",
     "make": "pnpm build:ui && electron-forge make"
   },

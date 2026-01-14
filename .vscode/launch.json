@@ -1,0 +1,29 @@
+{
+  "version": "0.2.0",
+  "compounds": [
+    {
+      "name": "Electron + Angular",
+      "configurations": ["Electron: Main", "Angular: Renderer"]
+    }
+  ],
+  "configurations": [
+    {
+      "name": "Electron: Main",
+      "type": "node",
+      "request": "launch",
+      "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/electron-forge",
+      "runtimeArgs": ["start"],
+      "preLaunchTask": "ui",
+      "postDebugTask": "stop-ui"
+    },
+
+    {
+      "name": "Angular: Renderer",
+      "type": "pwa-chrome",
+      "request": "launch",
+      "url": "http://localhost:4200",
+      "webRoot": "${workspaceFolder}/pomo-ui",
+      "sourceMaps": true
+    }
+  ]
+}
