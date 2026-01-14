@@ -8,9 +8,9 @@
   >
   </mat-progress-spinner>
 
-  <h1>{{ formattedTime() }}</h1>
+  <h1 class="do-not-select">{{ formattedTime() }}</h1>
 
-  <button (click)="start()" [disabled]="running()">Start</button>
+  <button matButton="filled" (click)="start()" [disabled]="running()">Start</button>
 
-  <button (click)="stop()" [disabled]="!running()">Stop</button>
+  <button matButton="filled" (click)="stop()" [disabled]="!running()">Stop</button>
 </div>
