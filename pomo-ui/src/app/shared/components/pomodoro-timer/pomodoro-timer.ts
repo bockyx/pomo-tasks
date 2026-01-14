@@ -1,10 +1,11 @@
 import { Component, computed, inject } from '@angular/core';
+import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { PomodoroTimerService } from '@pomo-ui/core/services/pomodoro-timer';
 
 @Component({
   selector: 'pou-pomodoro-timer',
-  imports: [MatProgressSpinnerModule],
+  imports: [MatProgressSpinnerModule, MatButtonModule],
   templateUrl: './pomodoro-timer.html',
   styleUrl: './pomodoro-timer.scss',
 })

@@ -39,6 +39,9 @@ export class PomodoroTimerService {
 
   private clear() {
     if (this.intervalId !== null) {
+      this.endTime = 0;
+      this.remainingMs.set(0);
+      this.progress.set(0);
       clearInterval(this.intervalId);
       this.intervalId = null;
     }
