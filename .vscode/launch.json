@@ -3,7 +3,8 @@
   "compounds": [
     {
       "name": "Electron + Angular",
-      "configurations": ["Electron: Main", "Angular: Renderer"]
+      "configurations": ["Electron: Main", "Angular: Renderer"],
+      "stopAll": true
     }
   ],
   "configurations": [
@@ -23,8 +24,7 @@
       "request": "launch",
       "url": "http://localhost:4200",
       "webRoot": "${workspaceFolder}/pomo-ui",
-      "sourceMaps": true,
-      "postDebugTask": "stop-ui"
+      "sourceMaps": true
     }
   ]
 }
