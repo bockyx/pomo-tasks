@@ -3,7 +3,8 @@
         "electron",
         "angular",
         "pomodoro",
-        "app"
+        "app",
+        "title-bar"
     ],
     "angular.enable-strict-mode-prompt": false,
     "angular.log": "verbose"
