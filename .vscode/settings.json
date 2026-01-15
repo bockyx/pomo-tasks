@@ -4,7 +4,8 @@
         "angular",
         "pomodoro",
         "app",
-        "title-bar"
+        "title-bar",
+        "side-bar"
     ],
     "angular.enable-strict-mode-prompt": false,
     "angular.log": "verbose"

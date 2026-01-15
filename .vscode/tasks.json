@@ -27,13 +27,13 @@
       "command": "echo ${input:terminate}",
       "problemMatcher": []
     }
-  ],
-  "inputs": [
-    {
-      "id": "terminate",
-      "type": "command",
-      "command": "workbench.action.tasks.terminate",
-      "args": "ui"
-    }
   ]
+  // "inputs": [
+  //   {
+  //     "id": "terminate",
+  //     "type": "command",
+  //     "command": "workbench.action.tasks.terminate",
+  //     "args": "ui"
+  //   }
+  // ]
 }

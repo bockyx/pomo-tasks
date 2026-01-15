@@ -1,1 +1,21 @@
-<p>side-bar works!</p>
+<div class="container" [ngClass]="{ expanded: isExpanded }">
+  <div class="header">
+    <button mat-icon-button (click)="toggleExpand()">
+      <mat-icon class="header-icon">menu</mat-icon>
+    </button>
+  </div>
+  <div class="menu">
+    <button mat-icon-button>
+      <mat-icon class="menu-icon">home</mat-icon>
+      <span class="menu-text" [ngClass]="{ expanded: isExpanded }">Home</span>
+    </button>
+    <button mat-icon-button>
+      <mat-icon class="menu-icon">settings</mat-icon>
+      <span class="menu-text" [ngClass]="{ expanded: isExpanded }">Settings</span>
+    </button>
+    <button mat-icon-button>
+      <mat-icon class="menu-icon">info</mat-icon>
+      <span class="menu-text" [ngClass]="{ expanded: isExpanded }">Info</span>
+    </button>
+  </div>
+</div>
