@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { PomodoroTimer } from "../../shared/components/pomodoro-timer/pomodoro-timer";
+import { PomodoroTimer } from '@pomo-ui/shared/components/pomodoro-timer/pomodoro-timer';
 
 @Component({
   selector: 'pou-home',
@@ -7,6 +7,4 @@ import { PomodoroTimer } from "../../shared/components/pomodoro-timer/pomodoro-t
   templateUrl: './home.html',
   styleUrl: './home.scss',
 })
-export class Home {
-
-}
+export class Home {}

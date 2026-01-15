@@ -1,16 +1,24 @@
 <div class="pomodoro-container">
-  <mat-progress-spinner
-    class="custom-spinner"
-    [mode]="'determinate'"
-    [value]="progress()"
-    [diameter]="200"
-    [strokeWidth]="10"
-  >
-  </mat-progress-spinner>
+  <div class="pomo-spinner-container">
+    <mat-progress-spinner
+      class="custom-spinner"
+      [mode]="'determinate'"
+      [value]="progress()"
+      [diameter]="200"
+      [strokeWidth]="10"
+    >
+    </mat-progress-spinner>
 
-  <h1 class="do-not-select">{{ formattedTime() }}</h1>
+    <h1 class="do-not-select pomodoro-timer">{{ formattedTime() }}</h1>
+  </div>
 
-  <button matButton="filled" (click)="start()" [disabled]="running()">Start</button>
+  <div class="pomo-buttons-container">
+    <button matButton="filled" (click)="start()" [disabled]="running()">Start</button>
 
-  <button matButton="filled" (click)="stop()" [disabled]="!running()">Stop</button>
+    <button matButton="filled" (click)="stop()" [disabled]="!running()">Stop</button>
+  </div>
+
+  <div class="pomo-info-container">
+    <span class="pomo-info-text">Completed Pomodoros: {{ completedPomos() }}</span>
+  </div>
 </div>

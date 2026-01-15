@@ -11,6 +11,7 @@ export class PomodoroTimerService {
   running = signal(false);
 
   progress = signal(0);
+  completedPomos = signal(0);
 
   start() {
     this.endTime = Date.now() + this.durationMs;
@@ -21,9 +22,10 @@ export class PomodoroTimerService {
     this.intervalId = window.setInterval(() => {
       const remaining = this.endTime - Date.now();
 
-      if (remaining <= 0) {
+      if (remaining <= 0 && this.running()) {
         this.progress.set(100);
         this.remainingMs.set(0);
+        this.completedPomos.update((count) => count + 1);
         this.stop();
       } else {
         this.remainingMs.set(remaining);

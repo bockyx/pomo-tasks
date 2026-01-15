@@ -15,6 +15,7 @@ export class PomodoroTimer {
   remaining = this.timer.remainingMs;
   running = this.timer.running;
   progress = this.timer.progress;
+  completedPomos = this.timer.completedPomos;
 
   formattedTime = computed(() => {
     const ms = this.remaining();
