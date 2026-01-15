@@ -1,0 +1,17 @@
+.container {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  flex-direction: row;
+
+  .left-area {
+    height: 100dvh;
+  }
+
+  .center-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100dvh;
+  }
+}
