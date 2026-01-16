@@ -30,6 +30,10 @@ export class PomodoroTimerService {
       if (remaining <= 0 && this.running()) {
         this.progress.set(100);
         this.shouldFade.set(true);
+        
+        // Trigger notification and sound
+        window.api?.pomodoroDone();
+        
         this.intervalExtra = window.setTimeout(() => {
           this.enableTransition.set(false);
           this.progress.set(0);
