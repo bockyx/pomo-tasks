@@ -5,4 +5,5 @@ import { contextBridge, ipcRenderer } from 'electron';
 // https://www.electronjs.org/docs/latest/tutorial/process-model#preload-scripts
 contextBridge.exposeInMainWorld('api', {
   ping: (msg: string) => ipcRenderer.invoke('ping', msg),
+  pomodoroDone: () => ipcRenderer.send('pomodoro-done'),
 });
