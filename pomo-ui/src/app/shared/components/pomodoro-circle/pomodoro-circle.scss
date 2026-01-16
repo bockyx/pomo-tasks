@@ -1,0 +1,25 @@
+.ring {
+  width: 280px;
+  transform: rotate(-90deg);
+}
+
+circle {
+  fill: none;
+
+  &.track {
+    stroke: hsla(0, 0%, 90%, 0.75);
+    stroke-width: 1;
+  }
+
+  &.progress {
+    stroke: #0a66ff;
+    stroke-linecap: round;
+    stroke-dasharray: 283;
+    transition: stroke-dashoffset .25s linear, opacity 0.25s ease-out;
+    stroke-width: 2.5;
+
+    &.no-transition {
+      transition: none;
+    }
+  }
+}

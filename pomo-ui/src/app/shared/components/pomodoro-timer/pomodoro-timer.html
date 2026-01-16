@@ -1,13 +1,14 @@
 <div class="pomodoro-container">
   <div class="pomo-spinner-container">
-    <mat-progress-spinner
+    <!-- <mat-progress-spinner
       class="custom-spinner"
       [mode]="'determinate'"
       [value]="progress()"
       [diameter]="200"
       [strokeWidth]="10"
     >
-    </mat-progress-spinner>
+    </mat-progress-spinner> -->
+    <pou-pomodoro-circle [progress]="progress()" [enableTransition]="enableTransition()" [shouldFade]="shouldFade()"></pou-pomodoro-circle>
 
     <h1 class="do-not-select pomodoro-timer">{{ formattedTime() }}</h1>
   </div>
