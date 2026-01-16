@@ -1,7 +1,7 @@
 import { Component, computed, inject } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { PomodoroTimerService } from '@pomo-ui/core/services/pomodoro-timer';
+import { PomodoroTimerService } from '@pomo-ui/core/services/pomodoro.service';
 import { PomodoroCircle } from '@pomo-ui/shared/components/pomodoro-circle/pomodoro-circle';
 
 @Component({
