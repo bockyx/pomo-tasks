@@ -7,7 +7,8 @@
         "title-bar",
         "side-bar",
         "tasks",
-        "settings"
+        "settings",
+        "info"
     ],
     "angular.enable-strict-mode-prompt": false,
     "angular.log": "verbose"
