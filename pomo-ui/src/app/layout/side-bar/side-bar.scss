@@ -29,7 +29,7 @@
   .menu {
     display: flex;
     flex-direction: column;
-    // margin-top: 20px;
+    gap: 4px;
 
     button {
       display: flex;
@@ -38,21 +38,31 @@
       padding: 10px;
       width: 100%;
       box-sizing: border-box;
+      gap: 10px;
+
+      &.active {
+        background-color: var(--mat-sys-primary);
+        color: var(--mat-sys-on-primary);
+      }
 
       .menu-icon {
+        min-width: 20px;
         width: 20px;
         height: 20px;
         font-size: 20px;
-        margin-right: 10px;
       }
 
       .menu-text {
-        display: none;
-        transition: all 0.4s ease;
+        opacity: 0;
+        max-width: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        transition: opacity 0.3s ease, max-width 0.3s ease;
         font-size: medium;
 
         &.expanded {
-          display: inline;
+          opacity: 1;
+          max-width: 150px;
         }
       }
     }

@@ -5,9 +5,18 @@
     </button>
   </div>
   <div class="menu">
-    <button mat-icon-button>
+    <button
+      mat-icon-button
+      routerLink="/"
+      routerLinkActive="active"
+      [routerLinkActiveOptions]="{ exact: true }"
+    >
       <mat-icon class="menu-icon">home</mat-icon>
       <span class="menu-text" [ngClass]="{ expanded: isExpanded }">Home</span>
+    </button>
+    <button mat-icon-button routerLink="/tasks" routerLinkActive="active">
+      <mat-icon class="menu-icon">checklist</mat-icon>
+      <span class="menu-text" [ngClass]="{ expanded: isExpanded }">Tasks</span>
     </button>
     <button mat-icon-button>
       <mat-icon class="menu-icon">settings</mat-icon>
