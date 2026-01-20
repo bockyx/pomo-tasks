@@ -1,8 +1,11 @@
 import { Injectable, signal } from '@angular/core';
+import { TimerType } from '../enums';
 
 @Injectable({ providedIn: 'root' })
 export class PomodoroTimerService {
-  readonly durationMs = 25 * 60 * 1000;
+  // Duration constants (in milliseconds)
+  private readonly WORK_DURATION_MS = 25 * 60 * 1000;
+  private readonly BREAK_DURATION_MS = 5 * 60 * 1000;
 
   private endTime = 0;
   private intervalId: number | null = null;
@@ -14,8 +17,19 @@ export class PomodoroTimerService {
 
   progress = signal(0);
   completedPomos = signal(0);
+  completedBreaks = signal(0);
   enableTransition = signal(false);
   shouldFade = signal(false);
+
+  // Current timer type (work or break session)
+  type = signal<TimerType>(TimerType.Work);
+
+  /**
+   * Get the duration in milliseconds based on current timer type
+   */
+  private get durationMs(): number {
+    return this.type() === TimerType.Work ? this.WORK_DURATION_MS : this.BREAK_DURATION_MS;
+  }
 
   start() {
     this.endTime = Date.now() + this.durationMs;
@@ -30,10 +44,10 @@ export class PomodoroTimerService {
       if (remaining <= 0 && this.running()) {
         this.progress.set(100);
         this.shouldFade.set(true);
-        
-        // Trigger notification and sound
+
+        // Trigger notification and sound when timer completes
         window.api?.pomodoroDone();
-        
+
         this.intervalExtra = window.setTimeout(() => {
           this.enableTransition.set(false);
           this.progress.set(0);
@@ -42,7 +56,16 @@ export class PomodoroTimerService {
             this.enableTransition.set(true);
             this.shouldFade.set(false);
             this.remainingMs.set(0);
-            this.completedPomos.update((count) => count + 1);
+
+            // Update counters and switch timer type
+            if (this.type() === TimerType.Work) {
+              this.completedPomos.update((count) => count + 1);
+              this.type.set(TimerType.Break);
+            } else {
+              this.completedBreaks.update((count) => count + 1);
+              this.type.set(TimerType.Work);
+            }
+
             this.stop();
           });
         }, 350);

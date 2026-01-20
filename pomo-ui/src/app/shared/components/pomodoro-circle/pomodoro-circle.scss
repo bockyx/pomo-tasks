@@ -12,10 +12,9 @@ circle {
   }
 
   &.progress {
-    stroke: #0a66ff;
     stroke-linecap: round;
     stroke-dasharray: 283;
-    transition: stroke-dashoffset .25s linear, opacity 0.25s ease-out;
+    transition: stroke-dashoffset .25s linear, opacity 0.25s ease-out, stroke 0.3s ease;
     stroke-width: 2.5;
 
     &.no-transition {

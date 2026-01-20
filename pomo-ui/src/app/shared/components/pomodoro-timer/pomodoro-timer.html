@@ -1,17 +1,16 @@
 <div class="pomodoro-container">
   <div class="pomo-spinner-container">
-    <!-- <mat-progress-spinner
-      class="custom-spinner"
-      [mode]="'determinate'"
-      [value]="progress()"
-      [diameter]="200"
-      [strokeWidth]="10"
-    >
-    </mat-progress-spinner> -->
-    <pou-pomodoro-circle [progress]="progress()" [enableTransition]="enableTransition()" [shouldFade]="shouldFade()"></pou-pomodoro-circle>
+    <pou-pomodoro-circle
+      [progress]="progress()"
+      [enableTransition]="enableTransition()"
+      [shouldFade]="shouldFade()"
+      [color]="timerType() === TimerType.Work ? '#0a66ff' : '#66BB6A'"
+    ></pou-pomodoro-circle>
 
     <h1 class="do-not-select pomodoro-timer">{{ formattedTime() }}</h1>
   </div>
+
+  <p class="session-type">{{ timerType() === TimerType.Work ? 'Work Session' : 'Break Time' }}</p>
 
   <div class="pomo-buttons-container">
     <button matButton="filled" (click)="start()" [disabled]="running()">Start</button>
@@ -21,5 +20,6 @@
 
   <div class="pomo-info-container">
     <span class="pomo-info-text">Completed Pomodoros: {{ completedPomos() }}</span>
+    <span class="pomo-info-text">Completed Breaks: {{ completedBreaks() }}</span>
   </div>
 </div>
